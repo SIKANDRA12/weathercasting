@@ -3,14 +3,14 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
+import "./InfoBox.css";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 import ThunderstormIcon from "@mui/icons-material/Thunderstorm";
 import SunnyIcon from "@mui/icons-material/Sunny";
-import "./InfoBox.css";
 
 export default function InfoBox({ info }) {
-  let initialImg =
-    "https://images.unsplash.com/photo-1566773333308-d2989f01cbc3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG90JTIwd2VhdGhlcnxlbnwwfHwwfHx8MA%3D%3D";
+  // let initialImg =
+  //   "https://images.unsplash.com/photo-1566773333308-d2989f01cbc3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG90JTIwd2VhdGhlcnxlbnwwfHwwfHx8MA%3D%3D";
 
   const HOT_URL =
     "https://images.unsplash.com/photo-1635657293844-5ce7596c92e9?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
@@ -39,12 +39,14 @@ export default function InfoBox({ info }) {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {info.city}
-                {info.humidity > 80
-                  ? ThunderstormIcon
-                  : info.temp > 15
-                  ? SunnyIcon
-                  : AcUnitIcon}
+                {info.city}{" "}
+                {info.humidity > 80 ? (
+                  <ThunderstormIcon />
+                ) : info.temp > 15 ? (
+                  <SunnyIcon />
+                ) : (
+                  <AcUnitIcon />
+                )}
               </Typography>
               <Typography
                 variant="body2"
